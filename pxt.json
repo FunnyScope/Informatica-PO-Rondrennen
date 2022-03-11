@@ -1,0 +1,27 @@
+{
+    "name": "Snake",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "Apple.ts",
+        "Player.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "4.0.18",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj",
+    "languageRestriction": "javascript-only"
+}
