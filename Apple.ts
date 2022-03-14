@@ -6,14 +6,15 @@ class Apple {
         this.sprite = game.createSprite(x, y);
     }
 
-    get x() {
+    //Getters and setters for xy
+    get x():number {
         return this.sprite.get(LedSpriteProperty.X);
     }
     set x(x: number) {
         this.sprite.set(LedSpriteProperty.X, x);
     }
 
-    get y() {
+    get y():number {
         return this.sprite.get(LedSpriteProperty.Y);
     }
     set y(y: number) {

@@ -1,6 +1,6 @@
 
 class Game {
-
+    
     apple: Apple;
     player: Player;
 
@@ -13,7 +13,8 @@ class Game {
 
     main() {
         loops.everyInterval(100, () => {
-            
+            this.player.move();
+            //Collision detection is needed, among other things
         })
     }
 
