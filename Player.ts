@@ -24,8 +24,11 @@ class Player {
     }
 
     //0, 90, 180, 270 degrees. Top, right, bottom and left respectively.
-    get direction():number {
+    get direction() {
         return this.sprite.get(LedSpriteProperty.Direction);
+    }
+    set direction(direction: number) {
+        this.sprite.set(LedSpriteProperty.Direction, direction);
     }
 
     move():void {

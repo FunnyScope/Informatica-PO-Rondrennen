@@ -16,7 +16,19 @@ class Game {
             this.player.move();
             //Collision detection is needed, among other things
         })
+
+
+        this.end();
     }
 
-
+    private end() {
+        this.apple.sprite.delete();
+        this.player.sprite.delete();
+    }
 }
+
+let theGame: Game;
+
+input.onButtonPressed(Button.A, () => {
+    theGame = new Game(new Player(2, 2), new Apple(4, 3));
+})
