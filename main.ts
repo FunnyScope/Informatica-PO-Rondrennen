@@ -3,6 +3,7 @@ class Game {
     
     apple: Apple;
     player: Player;
+    running = GameState.NotRunning;
 
     constructor(player: Player, apple: Apple) {
         this.player = player;
@@ -12,13 +13,22 @@ class Game {
 
 
     main() {
+        //Asynchronous. If you don't understand, replace with while-loop and pause
         loops.everyInterval(100, () => {
-            this.player.move();
+            switch(this.running) {
+                case GameState.Running:
+                    this.player.move();
+                    break;
+                case GameState.Paused:
+                    basic.showString("Paused");
+                    break;
+                case GameState.NotRunning:
+                    this.end();
+                    break;
+            }
             //Collision detection is needed, among other things
         })
 
-
-        this.end();
     }
 
     private end() {
@@ -27,8 +37,5 @@ class Game {
     }
 }
 
-let theGame: Game;
+let theGame = new Game(new Player(2, 2), new Apple(4, 2));
 
-input.onButtonPressed(Button.A, () => {
-    theGame = new Game(new Player(2, 2), new Apple(4, 3));
-})

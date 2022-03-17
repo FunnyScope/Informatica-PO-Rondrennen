@@ -10,7 +10,8 @@
         "main.ts",
         "README.md",
         "Apple.ts",
-        "Player.ts"
+        "Player.ts",
+        "GameState.ts"
     ],
     "testFiles": [
         "test.ts"
