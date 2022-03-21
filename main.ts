@@ -20,6 +20,7 @@ class Game {
 
     main() {
         while(true) {
+            let ended = false;
             switch(this.running) {
                 case GameState.Running:
                     if(this.player.sprite.isTouching(this.apple.sprite)) {
@@ -37,11 +38,11 @@ class Game {
                 case GameState.NotRunning:
                     //End sequence still needed;
                     this.end();
+                    ended = true;
                     break;
             }
-            if(this.running === GameState.NotRunning) {
+            if(ended) 
                 break;
-            }
             pause(300);
         }
 
