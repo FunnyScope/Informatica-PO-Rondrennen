@@ -19,7 +19,6 @@ class Game {
 
 
     main() {
-        //Asynchronous. If you don't understand, replace with while-loop and pause
         while(true) {
             switch(this.running) {
                 case GameState.Running:
