@@ -72,7 +72,7 @@ let theGame = new Game();
 //Don't know if this is a good way doing it
 input.onButtonPressed(Button.A, () => {
     if(theGame.gameState === GameState.NotRunning) {
-        theGame.initialise(new Player(2, 2), new Apple(4, 2));
+        theGame.initialise(new Player(2, 2), new Apple(4, 2, theGame));
     }
 })
 
