@@ -51,6 +51,7 @@ class Game {
     private end() {
         this.apple.sprite.delete();
         this.player.sprite.delete();
+        basic.showString("Final score: " + this.player.score);
     }
 
     get gameState():GameState {
@@ -83,4 +84,8 @@ input.onButtonPressed(Button.B, () => {
     } else if(theGame.gameState === GameState.Paused) {
         theGame.unpause();
     }
+})
+
+input.onButtonPressed(Button.AB, () => {
+    //TODO: create highscore system, display it with this
 })
