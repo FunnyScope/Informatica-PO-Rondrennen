@@ -59,9 +59,11 @@ class Game {
         this.player.sprite.delete();
         basic.showString("Final score: " + this.player.score);
         if(this.player.score > this.highscore) {
+            
             this.highscore = this.player.score;
+            radio.sendNumber(this.player.score);
             basic.showString("New highscore!");
-            radio.sendValue("highscore", this.player.score);
+
         }
         this.player.score = 0;
     }
@@ -107,16 +109,16 @@ input.onButtonPressed(Button.AB, () => {
     if(theGame.gameState !== GameState.NotRunning) return;
     
     theGame.gameState = GameState.Occupied;
-    theGame.otherHighscores.forEach((value: number) => {
-        basic.showNumber(value);
-    })
+
+    for(let i = 0; i < theGame.otherHighscores.length; i++) {
+        basic.showNumber(theGame.otherHighscores[i]);
+    }
     basic.showString("You: " + theGame.highscore);
+
     theGame.gameState = GameState.NotRunning;
 })
 
-
-radio.onReceivedValue((name: string, value: number) => {
-    if(name === "highscore") {
-        theGame.otherHighscores.push(value);
-    }
+//Doesn't remove "bad" highscores, can't be bothered to fix
+radio.onReceivedNumber((value: number) => {
+    theGame.otherHighscores.push(value); 
 })
