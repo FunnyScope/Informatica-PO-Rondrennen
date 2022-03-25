@@ -1,5 +1,6 @@
 enum GameState {
     NotRunning,
     Running,
-    Paused
+    Paused,
+    Occupied
 }

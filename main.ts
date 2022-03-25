@@ -5,8 +5,14 @@ class Game {
     player: Player;
     private running = GameState.NotRunning;
 
-    constructor() {
+    highscore: number = 0;
 
+    otherHighscores: number[] = [];
+
+    readonly radioGroup = 38;
+
+    constructor() {
+        radio.setGroup(this.radioGroup);
     }
 
 
@@ -52,10 +58,20 @@ class Game {
         this.apple.sprite.delete();
         this.player.sprite.delete();
         basic.showString("Final score: " + this.player.score);
+        if(this.player.score > this.highscore) {
+            this.highscore = this.player.score;
+            basic.showString("New highscore!");
+            radio.sendValue("highscore", this.player.score);
+        }
+        this.player.score = 0;
     }
 
     get gameState():GameState {
         return this.running;
+    }
+
+    set gameState(gameState: GameState) {
+        this.running = gameState;
     }
 
     pause() {
@@ -86,6 +102,21 @@ input.onButtonPressed(Button.B, () => {
     }
 })
 
+//Highscore system
 input.onButtonPressed(Button.AB, () => {
-    //TODO: create highscore system, display it with this
+    if(theGame.gameState !== GameState.NotRunning) return;
+    
+    theGame.gameState = GameState.Occupied;
+    theGame.otherHighscores.forEach((value: number) => {
+        basic.showNumber(value);
+    })
+    basic.showString("You: " + theGame.highscore);
+    theGame.gameState = GameState.NotRunning;
+})
+
+
+radio.onReceivedValue((name: string, value: number) => {
+    if(name === "highscore") {
+        theGame.otherHighscores.push(value);
+    }
 })
