@@ -49,7 +49,7 @@ class Player {
         if(this.y === 0 && this.direction === 0) {
             return true;
         }
-        if(this.y === 0 && this.direction === 180) {
+        if(this.y === 4 && this.direction === 180) {
             return true;
         }
 
