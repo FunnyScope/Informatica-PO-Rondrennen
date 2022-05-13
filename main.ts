@@ -11,6 +11,8 @@ class Game {
 
     readonly radioGroup = 38;
 
+    speed: number = 500;
+
     constructor() {
         radio.setGroup(this.radioGroup);
     }
@@ -32,6 +34,7 @@ class Game {
                     if(this.player.sprite.isTouching(this.apple.sprite)) {
                         this.player.score++;
                         this.apple.newLocation();
+                        this.speed -= 10;
                     }
                     if(this.player.checkIfHeadBonked()) {
                         this.running = GameState.NotRunning;
@@ -49,9 +52,9 @@ class Game {
             }
             if(ended) 
                 break;
-            pause(300);
+            pause(this.speed);
         }
-
+ 
     }
 
     private end() {
