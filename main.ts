@@ -17,7 +17,6 @@ class Game {
         radio.setGroup(this.radioGroup);
     }
 
-
     initialise(player: Player, apple: Apple) {
         this.player = player;
         this.apple = apple;
