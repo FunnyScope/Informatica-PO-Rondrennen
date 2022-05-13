@@ -11,7 +11,8 @@
         "README.md",
         "Apple.ts",
         "Player.ts",
-        "GameState.ts"
+        "GameState.ts",
+        "test2.ts"
     ],
     "testFiles": [
         "test.ts"
