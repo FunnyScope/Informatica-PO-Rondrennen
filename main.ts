@@ -128,17 +128,19 @@ radio.onReceivedNumber((value: number) => {
 })
 
 loops.everyInterval(5, () => {
-    if (pins.digitalReadPin(DigitalPin.P8) == 1) {
-        // 0 degrees
-        theGame.player.direction = 0
-    } else if (pins.digitalReadPin(DigitalPin.P12) == 1) {
-        // 90 degrees
-        theGame.player.direction = 90
-    } else if (pins.digitalReadPin(DigitalPin.P0) == 1) {
-        // 180 degrees
-        theGame.player.direction = 180
-    } else if (pins.digitalReadPin(DigitalPin.P8) == 1) {
-        // 270 degrees
-        theGame.player.direction = 270
+    if (theGame.gameState === GameState.Running) {
+        if (pins.digitalReadPin(DigitalPin.P8) == 1) {
+            // 0 degrees
+            theGame.player.direction = 0
+        } else if (pins.digitalReadPin(DigitalPin.P12) == 1) {
+            // 90 degrees
+            theGame.player.direction = 90
+        } else if (pins.digitalReadPin(DigitalPin.P0) == 1) {
+            // 180 degrees
+            theGame.player.direction = 180
+        } else if (pins.digitalReadPin(DigitalPin.P1) == 1) {
+            // 270 degrees
+            theGame.player.direction = 270
+        }
     }
 })
