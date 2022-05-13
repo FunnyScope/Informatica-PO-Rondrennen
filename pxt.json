@@ -12,7 +12,8 @@
         "Apple.ts",
         "Player.ts",
         "GameState.ts",
-        "test2.ts"
+        "test2.ts",
+        "controls.ts"
     ],
     "testFiles": [
         "test.ts"

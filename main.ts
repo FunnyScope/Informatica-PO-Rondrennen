@@ -39,6 +39,7 @@ class Game {
                     if(this.player.checkIfHeadBonked()) {
                         this.running = GameState.NotRunning;
                     }
+                    
                     this.player.move();
                     break;
                 case GameState.Paused:
