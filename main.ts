@@ -24,12 +24,15 @@ class Game {
         this.main();
     }
 
+    
 
     main() {
         while(true) {
             let ended = false;
             switch(this.running) {
                 case GameState.Running:
+                        this.apple.display();
+                        this.player.display();
                     if(this.player.sprite.isTouching(this.apple.sprite)) {
                         this.player.score++;
                         this.apple.newLocation();
@@ -134,7 +137,7 @@ loops.everyInterval(5, () => {
         } else if (pins.digitalReadPin(DigitalPin.P12) == 1) {
             // 90 degrees
             theGame.player.direction = 90
-        } else if (pins.digitalReadPin(DigitalPin.P0) == 1) {
+        } else if (pins.digitalReadPin(DigitalPin.P2) == 1) {
             // 180 degrees
             theGame.player.direction = 180
         } else if (pins.digitalReadPin(DigitalPin.P1) == 1) {
