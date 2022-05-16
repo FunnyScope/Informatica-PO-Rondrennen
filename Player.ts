@@ -63,13 +63,13 @@ class Player {
         if(this.x === 0 && this.direction === 270) {
             return true;
         }
-        if(this.x === 4 && this.direction === 90) {
+        if(this.x === 7 && this.direction === 90) {
             return true;
         }
         if(this.y === 0 && this.direction === 0) {
             return true;
         }
-        if(this.y === 4 && this.direction === 180) {
+        if(this.y === 6 && this.direction === 180) {
             return true;
         }
 

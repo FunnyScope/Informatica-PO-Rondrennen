@@ -10,12 +10,12 @@ class Apple {
     }
 
     newLocation() {
-        let maybeX = Math.randomRange(0, 4);
-        let maybeY = Math.randomRange(0, 4);
+        let maybeX = Math.randomRange(0, 7);
+        let maybeY = Math.randomRange(0, 6);
 
         while(this.theGame.player.x === maybeX && this.theGame.player.y === maybeY) {
-            maybeX = Math.randomRange(0, 4);
-            maybeY = Math.randomRange(0, 4);
+            maybeX = Math.randomRange(0, 7);
+            maybeY = Math.randomRange(0, 6);
         }
 
         this.sprite.set(LedSpriteProperty.X, maybeX);
