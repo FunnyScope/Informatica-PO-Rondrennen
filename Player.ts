@@ -1,5 +1,7 @@
 
 class Player {
+    matrixWidth = 7;
+    matrixHeight = 6;
 
     sprite: game.LedSprite;
     score = 0;
@@ -26,8 +28,8 @@ class Player {
 
     display(){
         let strip = neopixel.create(DigitalPin.P0, 60, NeoPixelMode.RGB);
-        let matrixWidth = 8;
-        let matrixHeight = 7; 
+        let matrixWidth = this.matrixWidth;
+        let matrixHeight = this.matrixHeight; 
         let x = this.x;
         let y = (matrixHeight - 1) -this.y; 
         // check if y is even
@@ -63,13 +65,13 @@ class Player {
         if(this.x === 0 && this.direction === 270) {
             return true;
         }
-        if(this.x === 7 && this.direction === 90) {
+        if(this.x === this.matrixWidth && this.direction === 90) {
             return true;
         }
         if(this.y === 0 && this.direction === 0) {
             return true;
         }
-        if(this.y === 6 && this.direction === 180) {
+        if(this.y === this.matrixHeight && this.direction === 180) {
             return true;
         }
 

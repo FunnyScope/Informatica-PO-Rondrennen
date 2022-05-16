@@ -1,6 +1,8 @@
 
 class Game {
-    
+    matrixWidth = 8; 
+    matrixHeight = 7; 
+
     apple: Apple;
     player: Player;
     private running = GameState.NotRunning;

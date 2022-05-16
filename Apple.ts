@@ -1,7 +1,7 @@
 class Apple {
-    
-    matrixWidth = 7; 
-    matrixHeight = 6; 
+    // error (er staat iets in main.ts dat hier ook moet komen :)
+    matrixWidth = this.theGame.matrixWidth - 1; 
+    matrixHeight = this.theGame.matrixHeight - 1; 
 
     sprite: game.LedSprite;
     theGame: Game;
