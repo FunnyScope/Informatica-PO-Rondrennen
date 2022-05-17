@@ -1,8 +1,6 @@
 
 class Game {
-    matrixWidth = 8; 
-    matrixHeight = 7; 
-
+ 
     apple: Apple;
     player: Player;
     private running = GameState.NotRunning;
@@ -25,8 +23,9 @@ class Game {
         this.running = GameState.Running;
         this.main();
     }
-
     
+    matrixWidth = 8;
+    matrixHeight = 7;
 
     main() {
         while(true) {

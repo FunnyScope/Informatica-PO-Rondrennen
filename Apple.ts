@@ -1,10 +1,12 @@
 class Apple {
-    // error (er staat iets in main.ts dat hier ook moet komen :)
-    matrixWidth = this.theGame.matrixWidth - 1; 
-    matrixHeight = this.theGame.matrixHeight - 1; 
+    // error (er staat iets in main.ts dat hier ook moet komen 
+
 
     sprite: game.LedSprite;
     theGame: Game;
+
+    matrixWidth = theGame.matrixWidth - 1;
+    matrixHeight = theGame.matrixHeight - 1;
 
     constructor(x: number, y: number, aGame: Game) {
         this.sprite = game.createSprite(x, y);
