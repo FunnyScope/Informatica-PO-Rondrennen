@@ -21,6 +21,6 @@ function epicStartUpEffects (x: number,y: number) {
 
 for (let y = 1; y < 5; y++) {
     for (let x = 2; x < 5; x++) {
-        epicStartUpEffects(x,y);
+        epicStartUpEffects(x, y);
     }
 }
