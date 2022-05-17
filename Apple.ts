@@ -1,12 +1,7 @@
 class Apple {
-    // error (er staat iets in main.ts dat hier ook moet komen 
-
-
+    
     sprite: game.LedSprite;
     theGame: Game;
-
-    matrixWidth = theGame.matrixWidth - 1;
-    matrixHeight = theGame.matrixHeight - 1;
 
     constructor(x: number, y: number, aGame: Game) {
         this.sprite = game.createSprite(x, y);
@@ -15,12 +10,12 @@ class Apple {
     }
 
     newLocation() {
-        let maybeX = Math.randomRange(0, (this.matrixWidth - 1));
-        let maybeY = Math.randomRange(0, (this.matrixHeight - 1));
+        let maybeX = Math.randomRange(0, 4);
+        let maybeY = Math.randomRange(0, 4);
 
         while(this.theGame.player.x === maybeX && this.theGame.player.y === maybeY) {
-            maybeX = Math.randomRange(0, (this.matrixWidth - 1));
-            maybeY = Math.randomRange(0, (this.matrixHeight - 1));
+            maybeX = Math.randomRange(0, 4);
+            maybeY = Math.randomRange(0, 4);
         }
 
         this.sprite.set(LedSpriteProperty.X, maybeX);
@@ -43,9 +38,9 @@ class Apple {
     }
 
     display() {
-        let matrixWidth = this.matrixWidth; 
-        let matrixHeight = this.matrixHeight; 
         let strip = neopixel.create(DigitalPin.P0, 60, NeoPixelMode.RGB);
+        let matrixWidth = 8;
+        let matrixHeight = 7; 
         let x = this.x;
         let y = (matrixHeight - 1) - this.y;
         // check if y is even
@@ -61,4 +56,7 @@ class Apple {
             strip.show();
         }
     }
+
+    
+
 }

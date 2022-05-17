@@ -13,8 +13,7 @@
         "Apple.ts",
         "Player.ts",
         "GameState.ts",
-        "ledDisplay.ts",
-        "epicstarteffect.ts"
+        "ledDisplay.ts"
     ],
     "testFiles": [
         "test.ts"
