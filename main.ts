@@ -31,8 +31,6 @@ class Game {
             let ended = false;
             switch(this.running) {
                 case GameState.Running:
-                        this.apple.display();
-                        this.player.display();
                     if(this.player.sprite.isTouching(this.apple.sprite)) {
                         this.player.score++;
                         this.apple.newLocation();
@@ -131,6 +129,7 @@ radio.onReceivedNumber((value: number) => {
 
 loops.everyInterval(5, () => {
     if (theGame.gameState === GameState.Running) {
+        
         if (pins.digitalReadPin(DigitalPin.P8) == 1) {
             // 0 degrees
             theGame.player.direction = 0
@@ -144,5 +143,11 @@ loops.everyInterval(5, () => {
             // 270 degrees
             theGame.player.direction = 270
         }
+    }
+})
+loops.everyInterval(0.000001, () => {
+    if (theGame.gameState === GameState.Running) {
+        theGame.apple.display();
+        theGame.player.display();
     }
 })
