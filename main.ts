@@ -13,6 +13,9 @@ class Game {
 
     speed: number = 500;
 
+    matrixWidth = 8; 
+    matrixHeight = 7; 
+
     constructor() {
         radio.setGroup(this.radioGroup);
     }

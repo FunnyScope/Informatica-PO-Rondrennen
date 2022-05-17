@@ -10,12 +10,12 @@ class Apple {
     }
 
     newLocation() {
-        let maybeX = Math.randomRange(0, 4);
-        let maybeY = Math.randomRange(0, 4);
+        let maybeX = Math.randomRange(0, theGame.matrixWidth);
+        let maybeY = Math.randomRange(0, theGame.matrixHeight);
 
         while(this.theGame.player.x === maybeX && this.theGame.player.y === maybeY) {
-            maybeX = Math.randomRange(0, 4);
-            maybeY = Math.randomRange(0, 4);
+            maybeX = Math.randomRange(0, theGame.matrixWidth);
+            maybeY = Math.randomRange(0, theGame.matrixHeight);
         }
 
         this.sprite.set(LedSpriteProperty.X, maybeX);
@@ -39,8 +39,8 @@ class Apple {
 
     display() {
         let strip = neopixel.create(DigitalPin.P0, 60, NeoPixelMode.RGB);
-        let matrixWidth = 8;
-        let matrixHeight = 7; 
+        let matrixWidth = theGame.matrixWidth;
+        let matrixHeight = theGame.matrixHeight; 
         let x = this.x;
         let y = (matrixHeight - 1) - this.y;
         // check if y is even
