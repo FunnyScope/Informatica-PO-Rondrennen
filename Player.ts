@@ -24,25 +24,7 @@ class Player {
         this.sprite.set(LedSpriteProperty.Y, y);
     }
 
-    display(){
-        let strip = neopixel.create(DigitalPin.P0, 60, NeoPixelMode.RGB);
-        let matrixWidth = theGame.matrixWidth; 
-        let matrixHeight = theGame.matrixHeight; 
-        let x = this.x;
-        let y = (matrixHeight - 1) -this.y; 
-        // check if y is even
-        if (y % 2 == 0) {
-            // y is even
-            let ledNumber = y * matrixWidth + (matrixWidth - 1 - x + 4);
-            strip.setPixelColor(ledNumber, neopixel.colors(NeoPixelColors.Red));
-            strip.show();
-        } else {
-            // y is odd
-            let ledNumber = y * matrixWidth + (x + 4);
-            strip.setPixelColor(ledNumber, neopixel.colors(NeoPixelColors.Red));
-            strip.show();
-        }
-    }
+    //display.... hier
 
     //0, 90, 180, 270 degrees. Top, right, bottom and left respectively.
     get direction() {

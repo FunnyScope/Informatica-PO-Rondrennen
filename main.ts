@@ -98,6 +98,47 @@ let theGame = new Game();
 //Don't know if this is a good way doing it
 input.onButtonPressed(Button.A, () => {
     if(theGame.gameState === GameState.NotRunning) {
+        // red square
+        displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Red));
+
+        pause(1000);
+        // square uit
+        displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Black));
+
+        pause(1000);
+        // orange square
+        displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Orange));
+
+        pause(1000);
+        // square uit
+        displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Black));
+
+        pause(1000);
+        // green square
+        displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Green));
+
+        pause(1000);
+
+        // sets "GO"
+        let GO = [
+            // "GO"
+            [0, 1, 1, 0, 0, 0, 1, 0],
+            [1, 0, 0, 1, 0, 1, 0, 1],
+            [1, 0, 0, 0, 0, 1, 0, 1],
+            [1, 0, 1, 1, 0, 1, 0, 1],
+            [1, 0, 0, 1, 0, 1, 0, 1],
+            [0, 1, 1, 1, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0,],
+        ];
+
+        //shows "GO"
+        addressLedsByArray(GO, neopixel.colors(NeoPixelColors.Purple));
+
+        pause(1000);
+
+        displaySquare(0, 7, 0, 8, neopixel.colors(NeoPixelColors.Black));
+
+
         theGame.initialise(new Player(2, 2), new Apple(4, 2, theGame));
     }
 })
@@ -150,7 +191,9 @@ loops.everyInterval(5, () => {
 })
 loops.everyInterval(0.000001, () => {
     if (theGame.gameState === GameState.Running) {
-        theGame.apple.display();
-        theGame.player.display();
+        // HIER MOETEN NOG DE PIXELS WAAR DE PLAYER zich niet bevindt zwart worden :)
+        setLed(theGame.player.y, theGame.player.x, neopixel.colors(NeoPixelColors.Red))
+        setLed(theGame.apple.y, theGame.apple.x, neopixel.colors(NeoPixelColors.Green))
+        strip.show(); 
     }
 })

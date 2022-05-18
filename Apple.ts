@@ -37,6 +37,7 @@ class Apple {
         this.sprite.set(LedSpriteProperty.Y, y);
     }
 
+    /*
     display() {
         let strip = neopixel.create(DigitalPin.P0, 60, NeoPixelMode.RGB);
         let matrixWidth = theGame.matrixWidth;
@@ -56,7 +57,7 @@ class Apple {
             strip.show();
         }
     }
-
+    */
     
 
 }
