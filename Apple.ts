@@ -1,14 +1,15 @@
 class Apple {
     
-    sprite: game.LedSprite;
+    //variables
+    sprite: PositionSprite;
     theGame: Game;
 
     constructor(x: number, y: number, aGame: Game) {
-        this.sprite = game.createSprite(x, y);
-        this.sprite.changeBrightnessBy(-100);
+        this.sprite = new PositionSprite(x, y, NeoPixelColors.Green, aGame);
         this.theGame = aGame;
     }
 
+    //Generates a new location for the apple
     newLocation() {
         let maybeX = Math.randomRange(0, theGame.matrixWidth);
         let maybeY = Math.randomRange(0, theGame.matrixHeight);
@@ -18,46 +19,25 @@ class Apple {
             maybeY = Math.randomRange(0, theGame.matrixHeight);
         }
 
-        this.sprite.set(LedSpriteProperty.X, maybeX);
-        this.sprite.set(LedSpriteProperty.Y, maybeY);
+        this.x = maybeX;
+        this.y = maybeY;
     }
 
     //Getters and setters for xy
     get x():number {
-        return this.sprite.get(LedSpriteProperty.X);
+        return this.sprite.x;
     }
     set x(x: number) {
-        this.sprite.set(LedSpriteProperty.X, x);
+        this.sprite.x = x;
     }
 
     get y():number {
-        return this.sprite.get(LedSpriteProperty.Y);
+        return this.sprite.y;
     }
     set y(y: number) {
-        this.sprite.set(LedSpriteProperty.Y, y);
+        this.sprite.y = y;
     }
 
-    /*
-    display() {
-        let strip = neopixel.create(DigitalPin.P0, 60, NeoPixelMode.RGB);
-        let matrixWidth = theGame.matrixWidth;
-        let matrixHeight = theGame.matrixHeight; 
-        let x = this.x;
-        let y = (matrixHeight - 1) - this.y;
-        // check if y is even
-        if (y % 2 == 0) {
-            // y is even
-            let ledNumber = y * matrixWidth + (matrixWidth - 1 - x + 4);
-            strip.setPixelColor(ledNumber, neopixel.colors(NeoPixelColors.Green));
-            strip.show();
-        } else {
-            // y is odd
-            let ledNumber = y * matrixWidth + (x + 4);
-            strip.setPixelColor(ledNumber, neopixel.colors(NeoPixelColors.Green));
-            strip.show();
-        }
-    }
-    */
     
 
 }

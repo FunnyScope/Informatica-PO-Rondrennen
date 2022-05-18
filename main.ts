@@ -1,18 +1,19 @@
 
 class Game {
     
+    //variables
     apple: Apple;
     player: Player;
     private running = GameState.NotRunning;
 
+    //radio and highscore related
     highscore: number = 0;
-
     otherHighscores: number[] = [];
-
     readonly radioGroup = 38;
 
     speed: number = 500;
 
+    //ledstrips
     matrixWidth = 8; 
     matrixHeight = 7; 
 
@@ -20,6 +21,8 @@ class Game {
         radio.setGroup(this.radioGroup);
     }
 
+    //Initialises the game, so we can keep the object at all times. 
+    //Kind of useful.
     initialise(player: Player, apple: Apple) {
         this.player = player;
         this.apple = apple;
@@ -28,43 +31,62 @@ class Game {
     }
 
     
-
+    //Main gameplay loop
     main() {
         while(true) {
+
             let ended = false;
+
             switch(this.running) {
+                //Game running
                 case GameState.Running:
+
+                //Checks if the player has the same position as the apple
                     if(this.player.sprite.isTouching(this.apple.sprite)) {
                         this.player.score++;
                         this.apple.newLocation();
                         this.speed -= 10;
+                        if(this.speed < 100) this.speed = 100;
                     }
+
+                    //Checks if the player has died
                     if(this.player.checkIfHeadBonked()) {
                         this.running = GameState.NotRunning;
                     }
-                    
+                    //updates things.
+                    this.player.sprite.display();
+                    this.apple.sprite.display();
                     this.player.move();
                     break;
+
+                //Game paused
                 case GameState.Paused:
                     basic.showString("Paused");
                     break;
+
+                //Player suffered from a skill issue and had a game-over
                 case GameState.NotRunning:
-                    //End sequence still needed;
                     this.end();
                     ended = true;
                     break;
             }
+            //If the game has ended we just break out of this method
             if(ended) 
                 break;
+            
             pause(this.speed);
+            this.clearScreen();
         }
  
     }
 
+    //Ends the game
     private end() {
         this.apple.sprite.delete();
         this.player.sprite.delete();
         basic.showString("Final score: " + this.player.score);
+
+        //Highscore management
         if(this.player.score > this.highscore) {
             
             this.highscore = this.player.score;
@@ -75,6 +97,7 @@ class Game {
         this.player.score = 0;
     }
 
+    //misc methods
     get gameState():GameState {
         return this.running;
     }
@@ -90,12 +113,15 @@ class Game {
     unpause() {
         this.running = GameState.Running;
     }
+
+    clearScreen() {
+        displaySquare(0, 7, 0, 8, neopixel.colors(NeoPixelColors.Black));
+    }
 }
 
 let theGame = new Game();
 
 //Starting the game.
-//Don't know if this is a good way doing it
 input.onButtonPressed(Button.A, () => {
     if(theGame.gameState === GameState.NotRunning) {
         // red square
@@ -139,7 +165,7 @@ input.onButtonPressed(Button.A, () => {
         displaySquare(0, 7, 0, 8, neopixel.colors(NeoPixelColors.Black));
 
 
-        theGame.initialise(new Player(2, 2), new Apple(4, 2, theGame));
+        theGame.initialise(new Player(2, 2, theGame), new Apple(4, 2, theGame));
     }
 })
 
@@ -166,14 +192,15 @@ input.onButtonPressed(Button.AB, () => {
     theGame.gameState = GameState.NotRunning;
 })
 
-//Doesn't remove "bad" highscores, can't be bothered to fix
+//Doesn't remove "bad" highscores. Might change that later
 radio.onReceivedNumber((value: number) => {
     theGame.otherHighscores.push(value); 
 })
 
+//Input detection
 loops.everyInterval(5, () => {
     if (theGame.gameState === GameState.Running) {
-        
+
         if (pins.digitalReadPin(DigitalPin.P8) == 1) {
             // 0 degrees
             theGame.player.direction = 0
@@ -187,13 +214,5 @@ loops.everyInterval(5, () => {
             // 270 degrees
             theGame.player.direction = 270
         }
-    }
-})
-loops.everyInterval(0.000001, () => {
-    if (theGame.gameState === GameState.Running) {
-        // HIER MOETEN NOG DE PIXELS WAAR DE PLAYER zich niet bevindt zwart worden :)
-        setLed(theGame.player.y, theGame.player.x, neopixel.colors(NeoPixelColors.Red))
-        setLed(theGame.apple.y, theGame.apple.x, neopixel.colors(NeoPixelColors.Green))
-        strip.show(); 
     }
 })

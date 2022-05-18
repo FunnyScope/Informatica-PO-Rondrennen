@@ -1,3 +1,4 @@
+//Gamestate enum
 enum GameState {
     NotRunning,
     Running,
