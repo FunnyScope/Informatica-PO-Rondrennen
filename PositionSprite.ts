@@ -47,13 +47,13 @@ class PositionSprite {
                 break;
             case 90:
                 this.x++;
-                if(this.x === (this.theGame.matrixWidth - 1)) {
+                if(this.x === (this.theGame.matrixWidth)) {
                     this.x--;
                 }
                 break;
             case 180:
                 this.y++;
-                if(this.y === (this.theGame.matrixHeight - 1)) {
+                if(this.y === (this.theGame.matrixHeight)) {
                     this.y--;
                 }
                 break;

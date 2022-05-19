@@ -55,11 +55,9 @@ class Game {
                     }
                     //updates things.
                     this.clearScreen();
-                    this.player.sprite.display();
-                    this.apple.sprite.display();
                     this.player.move();
                     this.player.sprite.display();
-                    this.apple.sprite.display();                    
+                    this.apple.sprite.display();
                     break;
 
 
