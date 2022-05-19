@@ -58,10 +58,7 @@ class Game {
                     this.player.sprite.display();
                     this.apple.sprite.display();
                     this.player.move();
-                    this.player.sprite.display();
-                    this.apple.sprite.display();                    
                     break;
-
 
                 //Game paused
                 case GameState.Paused:
@@ -79,7 +76,6 @@ class Game {
                 break;
             
             pause(this.speed);
-            //this.clearScreen();
         }
  
     }

@@ -74,7 +74,6 @@ class PositionSprite {
     display() {
         if(this.show)
             setLed(this.x, this.y, this.color);
-            strip.show(); 
     }
 
     delete() {

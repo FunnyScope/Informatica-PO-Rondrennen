@@ -4,26 +4,6 @@ function setLed(x: number, y: number, color: number) {
     let matrixWidth = 8;
     let matrixHeight = 7;
     y = (matrixHeight - 1) - y;
-    
-    for (let i = 0; i < 7; i++) {
-        for (let a = 0; a < 8; a++) {
-            if (y % 2 == 0) {
-                // y is even
-                let y = i; 
-                let x = a; 
-                let ledNumber = y * matrixWidth + (matrixWidth - 1 - x + 4);
-                strip.setPixelColor(ledNumber, neopixel.colors(NeoPixelColors.Blue));
-            } else {
-                let y = i; 
-                let x = a; 
-                // y is odd
-                let ledNumber = y * matrixWidth + (x + 4);
-                strip.setPixelColor(ledNumber, neopixel.colors(NeoPixelColors.Blue));
-            }
-            }
-            pause(50); 
-        }
-
     // check if y is even
     if (y % 2 == 0) {
         // y is even
