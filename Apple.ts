@@ -11,16 +11,23 @@ class Apple {
 
     //Generates a new location for the apple
     newLocation() {
-        let maybeX = Math.randomRange(0, theGame.matrixWidth);
-        let maybeY = Math.randomRange(0, theGame.matrixHeight);
+        let maybeX = Math.randomRange(0, theGame.matrixWidth-1);
+        let maybeY = Math.randomRange(0, theGame.matrixHeight-1);
 
         while(this.theGame.player.x === maybeX && this.theGame.player.y === maybeY) {
-            maybeX = Math.randomRange(0, theGame.matrixWidth);
-            maybeY = Math.randomRange(0, theGame.matrixHeight);
+            maybeX = Math.randomRange(0, theGame.matrixWidth-1);
+            maybeY = Math.randomRange(0, theGame.matrixHeight-1);
         }
 
         this.x = maybeX;
         this.y = maybeY;
+        
+        /*
+        let showx = this.x.toString(); 
+        let showy = this.y.toString(); 
+        basic.showString(showx); 
+        basic.showString(showy); 
+        */
     }
 
     //Getters and setters for xy

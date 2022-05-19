@@ -58,6 +58,7 @@ class Game {
                     this.player.move();
                     this.apple.sprite.display();
                     this.player.sprite.display();
+                    strip.show(); 
                     break;
 
                 //Game paused
@@ -76,7 +77,6 @@ class Game {
                 break;
             
             pause(this.speed);
-            //this.clearScreen();
         }
  
     }
@@ -127,6 +127,7 @@ let theGame = new Game();
 //Starting the game.
 input.onButtonPressed(Button.A, () => {
     if(theGame.gameState === GameState.NotRunning) {
+        /*
         // red square
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Red));
 
@@ -161,10 +162,10 @@ input.onButtonPressed(Button.A, () => {
         ];
 
         //shows "GO"
-        addressLedsByArray(GO, neopixel.colors(NeoPixelColors.Purple));
+        setLedsOnOrOffByArray(GO, neopixel.colors(NeoPixelColors.Purple));
 
         pause(1000);
-
+        */
         displaySquare(0, 7, 0, 8, neopixel.colors(NeoPixelColors.Black));
 
 

@@ -1,10 +1,9 @@
 let strip = neopixel.create(DigitalPin.P0, 60, NeoPixelMode.RGB);
 
 function setLed(x: number, y: number, color: number) {
-    let matrixWidth = 8;
-    let matrixHeight = 7;
-    y = (matrixHeight - 1) - y;
-    
+    let matrixWidth = theGame.matrixWidth;
+    let matrixHeight = theGame.matrixHeight;
+    y = matrixHeight - 1 - y; 
     // check if y is even
     if (y % 2 == 0) {
         // y is even
@@ -16,6 +15,46 @@ function setLed(x: number, y: number, color: number) {
         strip.setPixelColor(ledNumber, color);
     }
 }
+/*
+function makeArrayFromAppleAndPlayer(y: number, x: number, color: number) {
+    let newLedPixels = [
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0]
+    ];
+    newLedPixels[y][x] = color;
+
+    //loops through array 
+    for (let y = 0; y < 7; y++) {
+        for (let x = 0; x < 8; x++) {
+            if (newLedPixels[y][x] !== null) {
+                setLed(x, y, newLedPixels[y][x]);
+            } else if (newLedPixels[y][x] == 0) {
+                let off = neopixel.colors(NeoPixelColors.Black);
+                setLed(x, y, off);
+            }
+        }
+    }
+}
+*/
+/*
+function addressColorOfLedsByArray(newLedPixels: number[][], color: number) {
+    for (let y = 0; y < 7; y++) {
+        for (let x = 0; x < 8; x++) {
+            if (newLedPixels[y][x] !== null) {
+                setLed(x, y, newLedPixels[y][x]);
+            } else if (newLedPixels[y][x] == 0) {
+                let off = neopixel.colors(NeoPixelColors.Black);
+                setLed(x, y, off);
+            }
+        }
+    }
+}
+*/
 
 
 //for displaying a square
@@ -23,13 +62,12 @@ function displaySquare(leftY: number, rightY: number, leftX: number, rightX: num
     for (let y = leftY; y < rightY; y++) {
         for (let x = leftX; x < rightX; x++) {
             setLed(x, y, color);
-            strip.show();
         }
     }
 }
 
 //uses an array to set color of leds
-function addressLedsByArray(ledMatrix: number[][], color: number) {
+function setLedsOnOrOffByArray(ledMatrix: number[][], color: number) {
     for (let y = 0; y < 7; y++) {
         for (let x = 0; x < 8; x++) {
             if (ledMatrix[y][x] == 1) {
@@ -40,7 +78,6 @@ function addressLedsByArray(ledMatrix: number[][], color: number) {
             }
         }
     }
-    strip.show();
 }
 
 /*
