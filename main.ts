@@ -69,6 +69,7 @@ class Game {
                 //Player suffered from a skill issue and had a game-over
                 case GameState.NotRunning:
                     this.end();
+
                     ended = true;
                     break;
             }
@@ -85,7 +86,10 @@ class Game {
     private end() {
         this.apple.sprite.delete();
         this.player.sprite.delete();
+        this.clearScreen();
+        strip.show();
         basic.showString("Final score: " + this.player.score);
+
 
         //Highscore management
         if(this.player.score > this.highscore) {
