@@ -54,6 +54,7 @@ class Game {
                         this.running = GameState.NotRunning;
                     }
                     //updates things.
+                    this.clearScreen();
                     this.player.sprite.display();
                     this.apple.sprite.display();
                     this.player.move();
@@ -75,7 +76,6 @@ class Game {
                 break;
             
             pause(this.speed);
-            this.clearScreen();
         }
  
     }
