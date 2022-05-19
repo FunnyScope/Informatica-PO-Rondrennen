@@ -56,10 +56,9 @@ class Game {
                     //updates things.
                     this.clearScreen();
                     this.player.move();
-                    this.player.sprite.display();
                     this.apple.sprite.display();
+                    this.player.sprite.display();
                     break;
-
 
                 //Game paused
                 case GameState.Paused:
@@ -97,6 +96,8 @@ class Game {
 
         }
         this.player.score = 0;
+
+        this.speed = 500;
     }
 
     //misc methods

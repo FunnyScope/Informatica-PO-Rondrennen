@@ -6,7 +6,7 @@
 //before we built the game on ledstrips.
 //So some things don't really make sense. 
 //As an example, there's direction and everything, but
-//deltaX and deltaY would've worked fine as well.
+//deltaX and deltaY would've worked wonderfully well too.
 
 class PositionSprite {
 
