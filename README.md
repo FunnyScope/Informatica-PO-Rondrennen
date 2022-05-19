@@ -1,3 +1,6 @@
+## Taakverdeling
+In het algemeen zijn de gameloop en game mechanics en dergelijke door Jaap gedaan, en de elektronica en de verbindingen in de software door Niek.
+
 
 > Open this page at [https://funnyscope.github.io/informatica-po-rondrennen/](https://funnyscope.github.io/informatica-po-rondrennen/)
 
