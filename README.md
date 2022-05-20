@@ -2,9 +2,8 @@
 Als het lampje van de USB-c chip niet rood brandt, is er iets mis en komt er een te hoge spanning op de ledstrips (dan branden ze door). 
 
 ## toDo
-pause display op ledstrips
-array om nummers te displayen goed invullen
-points kunnen nog niet displayen
+De ledDisplay kan niet bij alle strings gebruikt worden, omdat het bestand dan te groot wordt en het niet gecompiled naar een hex file kan worden. 
+Alle strings zijn sowiso op de display van de microbit te zien. 
 
 ## Taakverdeling
 In het algemeen zijn de gameloop en game mechanics en dergelijke door Jaap gedaan, en de elektronica en de verbindingen in de software door Niek.

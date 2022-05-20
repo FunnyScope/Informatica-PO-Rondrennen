@@ -18,16 +18,8 @@ class Apple {
             maybeX = Math.randomRange(0, theGame.matrixWidth-1);
             maybeY = Math.randomRange(0, theGame.matrixHeight-1);
         }
-
         this.x = maybeX;
         this.y = maybeY;
-        
-        /*
-        let showx = this.x.toString(); 
-        let showy = this.y.toString(); 
-        basic.showString(showx); 
-        basic.showString(showy); 
-        */
     }
 
     //Getters and setters for xy

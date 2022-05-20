@@ -1,6 +1,5 @@
 
 class Game {
-    
     //variables
     apple: Apple;
     player: Player;
@@ -223,8 +222,8 @@ radio.onReceivedNumber((value: number) => {
 
 //Input detection
 loops.everyInterval(5, () => {
+    //creates infinite loop
     if (theGame.gameState === GameState.Running) {
-
         if (pins.digitalReadPin(DigitalPin.P8) == 1) {
             // 0 degrees
             theGame.player.direction = 0

@@ -27,20 +27,6 @@ function setLed(x: number, y: number, color: number) {
     }
 }
 
-// can set an image of multiple colors
-function addressColorOfLedsByArray(newLedPixels: number[][], color: number) {
-    for (let y = 0; y < 7; y++) {
-        for (let x = 0; x < 8; x++) {
-            if (newLedPixels[y][x] !== null) {
-                setLed(x, y, newLedPixels[y][x]);
-            } else if (newLedPixels[y][x] == 0) {
-                let off = neopixel.colors(NeoPixelColors.Black);
-                setLed(x, y, off);
-            }
-        }
-    }
-}
-
 //for displaying a square with one color
 function displaySquare(leftY: number, rightY: number, leftX: number, rightX: number, color: number) {
     for (let y = leftY; y < rightY; y++) {
@@ -63,23 +49,6 @@ function setLedsOnOrOffByArray(ledMatrix: number[][], color: number) {
         }
     }
 }
-
-
-// sets "GO"
-let GO = [
-    // "GO"
-    [0, 1, 1, 0, 0, 0, 1, 0],
-    [1, 0, 0, 1, 0, 1, 0, 1],
-    [1, 0, 0, 0, 0, 1, 0, 1],
-    [1, 0, 1, 1, 0, 1, 0, 1],
-    [1, 0, 0, 1, 0, 1, 0, 1],
-    [0, 1, 1, 1, 0, 0, 1, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0,],
-];
-
-// sets "GO"
-
-
 // shows whole string from big array
 function stringByArray(bigString: number[][], color: number) {
     for (let i = 0; i < bigString[0].length; i++) {
@@ -118,6 +87,11 @@ function clearBigArray() {
     bigArray = [[], [], [], [], [], [], [],]; 
 }
 
+
+// onderstaande functies kunnen niet gecompiled worden naar een hex file, 
+// omdat het anders eent te grote filesize krijgt :c
+
+/* 
 function seperatesNumberInDigits(getal: number) {
     let num = getal;
     let digits = [];
@@ -169,3 +143,4 @@ function pickFromArray(digits: number[], counter: number) {
     }
     return displayedNumber;
 }
+*/

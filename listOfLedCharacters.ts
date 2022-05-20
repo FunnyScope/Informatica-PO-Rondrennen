@@ -2,6 +2,17 @@ function getIcon(iconName: string):number[][] {
     let icon: number[][];
 
     switch(iconName) {
+        case "GO":
+
+            icon = [
+                [0, 1, 1, 0, 0, 0, 1, 0],
+                [1, 0, 0, 1, 0, 1, 0, 1],
+                [1, 0, 0, 0, 0, 1, 0, 1],
+                [1, 0, 1, 1, 0, 1, 0, 1],
+                [1, 0, 0, 1, 0, 1, 0, 1],
+                [0, 1, 1, 1, 0, 0, 1, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0,],
+            ];
         case "colon": 
             icon = [
                 [0, 0, 0, 0, 0, 0, 0, 0],
@@ -75,6 +86,11 @@ function getIcon(iconName: string):number[][] {
                 [0, 0, 0, 0, 0, 0, 0, 0]
             ];
             break;
+
+        //onderstaande getallen kunnen niet worden gedisplayed omdat de filesize 
+        // dan te groot wordt (zie ledDisplay.ts)
+
+        /*    
         case "zero":
             icon = [
                 [0, 0, 1, 0, 0, 0, 0, 0],
@@ -171,7 +187,7 @@ function getIcon(iconName: string):number[][] {
                 [0, 0, 0, 0, 0, 0, 0, 0]
             ];
             break;
-        /*
+        
         case "eight":
             icon = [
                 [0, 0, 1, 0, 0, 0, 0, 0],
