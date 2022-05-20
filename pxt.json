@@ -14,7 +14,8 @@
         "Player.ts",
         "GameState.ts",
         "ledDisplay.ts",
-        "PositionSprite.ts"
+        "PositionSprite.ts",
+        "listOfLedCharacters.ts"
     ],
     "testFiles": [
         "test.ts"

@@ -88,6 +88,20 @@ class Game {
         this.player.sprite.delete();
         this.clearScreen();
         strip.show();
+
+
+        addToBigArray(s);
+        addToBigArray(c);
+        addToBigArray(o);
+        addToBigArray(r);
+        addToBigArray(e);
+        addToBigArray(colon); 
+        
+        seperatesNumberInDigits(this.player.score);
+
+        
+        stringByArray(bigArray, neopixel.colors(NeoPixelColors.Red));
+        // DON'T FORGET TO CLEAR BIGARRAY :D
         basic.showString("Final score: " + this.player.score);
 
 
@@ -154,6 +168,7 @@ input.onButtonPressed(Button.A, () => {
         pause(1000);
 
         // sets "GO"
+        // deze kan nog naar list ofledcharacters.ts :)
         let GO = [
             // "GO"
             [0, 1, 1, 0, 0, 0, 1, 0],
