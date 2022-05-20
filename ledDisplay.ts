@@ -114,38 +114,58 @@ function addToBigArray(character: number[][]) {
     }
 }
 
+function clearBigArray() {
+    bigArray = [[], [], [], [], [], [], [],]; 
+}
+
 function seperatesNumberInDigits(getal: number) {
     let num = getal;
     let digits = [];
+
     while (num > 0) {
         digits.push(num % 10);
         num = Math.trunc(num / 10);
     }
     digits.reverse();
-
-    for (let h = 0; h < digits.length; h++) {
-        if (digits[h] == 0) {
-            addToBigArray(zero);
-        } else if (digits[h] == 1) {
-            addToBigArray(one);
-        } else if (digits[h] == 2) {
-            addToBigArray(two);
-        } else if (digits[h] == 3) {
-            addToBigArray(three);
-        } else if (digits[h] == 4) {
-            addToBigArray(four);
-        } else if (digits[h] == 5) {
-            addToBigArray(five);
-        } else if (digits[h] == 6) {
-            addToBigArray(six);
-        } else if (digits[h] == 7) {
-            addToBigArray(seven);
-        } else if (digits[h] == 8) {
-            addToBigArray(eight);
-        } else if (digits[h] == 9) {
-            addToBigArray(nine);
-        }
+    let length = digits.length;
+    for (let h = 0; h < length; h++) {
+        let test = pickFromArray(digits, h);
     }
 }
 
-
+function pickFromArray(digits: number[], counter: number) {
+    let displayedNumber: string;
+    switch (digits[counter]) {
+        case 0:
+            addToBigArray(getIcon("c"));
+            break;
+        case 1:
+            addToBigArray(getIcon("c"));
+            break;
+        case 2:
+            addToBigArray(getIcon("c"));
+            break;
+        case 3:
+            addToBigArray(getIcon("c"));
+            break;
+        case 4:
+            addToBigArray(getIcon("c"));
+            break;
+        case 5:
+            addToBigArray(getIcon("c"));
+            break;
+        case 6:
+            addToBigArray(getIcon("c"));
+            break;
+        case 7:
+            addToBigArray(getIcon("c"));
+            break;
+        case 8:
+            addToBigArray(getIcon("c"));
+            break;
+        case 9:
+            addToBigArray(getIcon("c"));
+            break;
+    }
+    return displayedNumber;
+}

@@ -89,19 +89,20 @@ class Game {
         this.clearScreen();
         strip.show();
 
-
-        addToBigArray(s);
-        addToBigArray(c);
-        addToBigArray(o);
-        addToBigArray(r);
-        addToBigArray(e);
-        addToBigArray(colon); 
+        // shows score on ledmatrix
+        addToBigArray(getIcon("c"));
+        addToBigArray(getIcon("c"));
+        addToBigArray(getIcon("c"));
+        addToBigArray(getIcon("c"));
+        addToBigArray(getIcon("c"));
+        addToBigArray(getIcon("colon")); 
         
-        seperatesNumberInDigits(this.player.score);
+        //seperatesNumberInDigits(this.player.score);
 
-        
         stringByArray(bigArray, neopixel.colors(NeoPixelColors.Red));
         // DON'T FORGET TO CLEAR BIGARRAY :D
+        clearBigArray(); 
+
         basic.showString("Final score: " + this.player.score);
 
 
