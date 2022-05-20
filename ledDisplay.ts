@@ -121,6 +121,8 @@ function seperatesNumberInDigits(getal: number) {
         digits.push(num % 10);
         num = Math.trunc(num / 10);
     }
+    digits.reverse();
+
     for (let h = 0; h < digits.length; h++) {
         if (digits[h] == 0) {
             addToBigArray(zero);
