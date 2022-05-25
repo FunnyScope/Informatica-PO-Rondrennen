@@ -4,13 +4,18 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "neopixel": "github:Microsoft/pxt-neopixel#v0.7.3"
     },
     "files": [
         "main.ts",
         "README.md",
         "Apple.ts",
-        "Player.ts"
+        "Player.ts",
+        "GameState.ts",
+        "ledDisplay.ts",
+        "PositionSprite.ts",
+        "listOfLedCharacters.ts"
     ],
     "testFiles": [
         "test.ts"
