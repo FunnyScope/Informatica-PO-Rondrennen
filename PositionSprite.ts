@@ -74,17 +74,9 @@ class PositionSprite {
     display() {
         if(this.show)
             setLed(this.x, this.y, this.color);
-            /*
-            let showx = this.x.toString(); 
-            let showy = this.y.toString(); 
-            basic.showString(showx);
-            basic.showString(showy); 
-            */
-
     }
 
     delete() {
         this.show = false;
     }
-    
 }

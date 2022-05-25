@@ -1,5 +1,6 @@
 let strip = neopixel.create(DigitalPin.P0, 60, NeoPixelMode.RGB);
 
+// create array for strings to go in
 let bigArray: number[][] = [
     [],
     [],
@@ -27,7 +28,7 @@ function setLed(x: number, y: number, color: number) {
     }
 }
 
-//for displaying a square with one color
+//display a square with one color
 function displaySquare(leftY: number, rightY: number, leftX: number, rightX: number, color: number) {
     for (let y = leftY; y < rightY; y++) {
         for (let x = leftX; x < rightX; x++) {
@@ -89,9 +90,9 @@ function clearBigArray() {
 
 
 // onderstaande functies kunnen niet gecompiled worden naar een hex file, 
-// omdat het anders eent te grote filesize krijgt :c
+// omdat het anders een te grote filesize krijgt :c
 
-/* 
+/*
 function seperatesNumberInDigits(getal: number) {
     let num = getal;
     let digits = [];
@@ -103,7 +104,7 @@ function seperatesNumberInDigits(getal: number) {
     digits.reverse();
     let length = digits.length;
     for (let h = 0; h < length; h++) {
-        let test = pickFromArray(digits, h);
+        pickFromArray(digits, h); 
     }
 }
 

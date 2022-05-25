@@ -36,7 +36,4 @@ class Apple {
     set y(y: number) {
         this.sprite.y = y;
     }
-
-    
-
 }

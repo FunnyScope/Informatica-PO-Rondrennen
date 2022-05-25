@@ -53,8 +53,7 @@ class Player {
         if(this.y === (theGame.matrixHeight -1) && this.direction === 180) {
             return true;
         }
-
+        
         return false;
     }
-
 }

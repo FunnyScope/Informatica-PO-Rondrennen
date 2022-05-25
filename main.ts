@@ -88,7 +88,9 @@ class Game {
         this.clearScreen();
         strip.show();
 
-        // shows score on ledmatrix
+    /*
+
+        // adds "score" to bigArray
         addToBigArray(getIcon("s"));
         addToBigArray(getIcon("c"));
         addToBigArray(getIcon("o"));
@@ -96,12 +98,16 @@ class Game {
         addToBigArray(getIcon("e"));
         addToBigArray(getIcon("colon")); 
         
+        // makes a two digit number into two separate digits
         //seperatesNumberInDigits(this.player.score);
-
+        
+        // sets and shows the string in bigArray
         stringByArray(bigArray, neopixel.colors(NeoPixelColors.Red));
+     */   
         // DON'T FORGET TO CLEAR BIGARRAY :D
         clearBigArray(); 
-
+    
+        // shows score on microbit display
         basic.showNumber(this.player.score);
 
 
@@ -151,47 +157,39 @@ input.onButtonPressed(Button.A, () => {
         strip.show(); 
 
         pause(1000);
-        // square uit
-        displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Black));
-        strip.show();
 
+        // clear screen
+        theGame.clearScreen(); 
+        strip.show(); 
 
         pause(1000);
+
         // orange square
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Orange));
         strip.show();
 
         pause(1000);
-        // square uit
-        displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Black));
-        strip.show();
+
+        // clear screen
+        theGame.clearScreen(); 
+        strip.show(); 
         pause(1000);
 
         // green square
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Green));
         strip.show(); 
+        
         pause(1000);
 
-        // sets "GO"
-        // deze kan nog naar list ofledcharacters.ts :)
-        let GO = [
-            // "GO"
-            [0, 1, 1, 0, 0, 0, 1, 0],
-            [1, 0, 0, 1, 0, 1, 0, 1],
-            [1, 0, 0, 0, 0, 1, 0, 1],
-            [1, 0, 1, 1, 0, 1, 0, 1],
-            [1, 0, 0, 1, 0, 1, 0, 1],
-            [0, 1, 1, 1, 0, 0, 1, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0,],
-        ];
-
-        //shows "GO"
-        setLedsOnOrOffByArray(GO, neopixel.colors(NeoPixelColors.Purple));
+        // sets and shows "GO"
+        setLedsOnOrOffByArray(getIcon("GO"), neopixel.colors(NeoPixelColors.Purple));
         strip.show(); 
+        
         pause(1000);
         
-        displaySquare(0, 7, 0, 8, neopixel.colors(NeoPixelColors.Black));
-        strip.show(); 
+        //clears screen
+        theGame.clearScreen();
+        strip.show();
 
         theGame.initialise(new Player(2, 2, theGame), new Apple(4, 2, theGame));
     }
@@ -220,14 +218,13 @@ input.onButtonPressed(Button.AB, () => {
     theGame.gameState = GameState.NotRunning;
 })
 
-//Doesn't remove "bad" highscores. Might change that later
+// Doesn't remove "bad" highscores
 radio.onReceivedNumber((value: number) => {
     theGame.otherHighscores.push(value); 
 })
 
-//Input detection
+//Input detection 
 loops.everyInterval(5, () => {
-    //creates infinite loop
     if (theGame.gameState === GameState.Running) {
         if (pins.digitalReadPin(DigitalPin.P8) == 1) {
             // 0 degrees

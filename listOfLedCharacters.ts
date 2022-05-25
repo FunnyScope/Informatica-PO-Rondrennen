@@ -3,7 +3,6 @@ function getIcon(iconName: string):number[][] {
 
     switch(iconName) {
         case "GO":
-
             icon = [
                 [0, 1, 1, 0, 0, 0, 1, 0],
                 [1, 0, 0, 1, 0, 1, 0, 1],
@@ -87,7 +86,8 @@ function getIcon(iconName: string):number[][] {
             ];
             break;
 
-        //onderstaande getallen kunnen niet worden gedisplayed omdat de filesize 
+
+        // onderstaande getallen kunnen niet worden gedisplayed omdat de filesize 
         // dan te groot wordt (zie ledDisplay.ts)
 
         /*    
