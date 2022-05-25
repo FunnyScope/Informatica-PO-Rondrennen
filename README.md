@@ -1,12 +1,12 @@
 ## BELANGRIJK
-Als het lampje van de USB-c chip niet rood brandt, is er iets mis en komt er een te hoge spanning op de ledstrips (dan branden ze door). 
-
-## toDo
-De ledDisplay kan niet bij alle strings gebruikt worden, omdat het bestand dan te groot wordt en het niet gecompiled naar een hex file kan worden. 
-Alle strings zijn sowiso op de display van de microbit te zien. 
+Als het lampje van de USB-c chip een andere kleur dan rood brandt, is er iets mis en komt er een te hoge spanning op de ledstrips (dan branden ze door). 
 
 ## Taakverdeling
 In het algemeen zijn de gameloop en game mechanics en dergelijke door Jaap gedaan, en de elektronica en de verbindingen in de software door Niek.
+
+## Filesize
+Makecode editor kan onze code niet helemaal compilen naar een hex-file, omdat de compiler die Makecode gebruikt maar een beperkt aantal bytes kan compilen. De stukken code die met behulp van comments (/* ) zijn uitgezet, zijn teveel voor deze compiler. Deze uitgezette code zorgt ervoor dat er (meer) strings op de ledmatrix weergeven kunnen worden. 
+(Comments worden niet gecompiled naar het hex-file en geven daarom geen error :D )
 
 > Open this page at [https://funnyscope.github.io/informatica-po-rondrennen/](https://funnyscope.github.io/informatica-po-rondrennen/)
 
