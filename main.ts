@@ -102,7 +102,7 @@ class Game {
         // DON'T FORGET TO CLEAR BIGARRAY :D
         clearBigArray(); 
 
-        basic.showString("Final score: " + this.player.score);
+        basic.showNumber(this.player.score);
 
 
         //Highscore management
@@ -148,23 +148,28 @@ input.onButtonPressed(Button.A, () => {
         
         // red square
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Red));
+        strip.show(); 
 
         pause(1000);
         // square uit
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Black));
+        strip.show();
+
 
         pause(1000);
         // orange square
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Orange));
+        strip.show();
 
         pause(1000);
         // square uit
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Black));
-
+        strip.show();
         pause(1000);
+
         // green square
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Green));
-
+        strip.show(); 
         pause(1000);
 
         // sets "GO"
@@ -182,11 +187,11 @@ input.onButtonPressed(Button.A, () => {
 
         //shows "GO"
         setLedsOnOrOffByArray(GO, neopixel.colors(NeoPixelColors.Purple));
-
+        strip.show(); 
         pause(1000);
         
         displaySquare(0, 7, 0, 8, neopixel.colors(NeoPixelColors.Black));
-
+        strip.show(); 
 
         theGame.initialise(new Player(2, 2, theGame), new Apple(4, 2, theGame));
     }
