@@ -89,11 +89,11 @@ class Game {
         strip.show();
 
         // shows score on ledmatrix
+        addToBigArray(getIcon("s"));
         addToBigArray(getIcon("c"));
-        addToBigArray(getIcon("c"));
-        addToBigArray(getIcon("c"));
-        addToBigArray(getIcon("c"));
-        addToBigArray(getIcon("c"));
+        addToBigArray(getIcon("o"));
+        addToBigArray(getIcon("r"));
+        addToBigArray(getIcon("e"));
         addToBigArray(getIcon("colon")); 
         
         //seperatesNumberInDigits(this.player.score);
@@ -145,7 +145,7 @@ let theGame = new Game();
 //Starting the game.
 input.onButtonPressed(Button.A, () => {
     if(theGame.gameState === GameState.NotRunning) {
-        /*
+        
         // red square
         displaySquare(1, 6, 1, 6, neopixel.colors(NeoPixelColors.Red));
 
@@ -184,7 +184,7 @@ input.onButtonPressed(Button.A, () => {
         setLedsOnOrOffByArray(GO, neopixel.colors(NeoPixelColors.Purple));
 
         pause(1000);
-        */
+        
         displaySquare(0, 7, 0, 8, neopixel.colors(NeoPixelColors.Black));
 
 
